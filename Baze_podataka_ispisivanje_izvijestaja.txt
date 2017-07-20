@@ -1,0 +1,9 @@
+SELECT s."ime"||' '||s."prezime" as "Student", s."godina_st" as "Godina studija", n."ime"||' '||n."prezime" as "Profesor", k."naziv" as "Naziv kursa",k."semestar" as "Semestar",k."sk_godina" as "Skolska godina", g."br_grupe" as "Broj grupe", i."ocjena" as "Ocjena", i."datum" as "Datum"
+FROM STUDENT s, NASTAVNIK n, ISPIT i, KURS k, GRUPA g
+WHERE s."br_indeksa"=i."br_indeksa" AND k."br_kursa"=i."br_kursa" AND n."br_nastavnika"= i."br_nastavnika" AND g."br_grupe"=i."br_grupe"
+SELECT k."naziv" as "Naziv kursa",k."semestar" as "Semestar",k."sk_godina" as "Skolska godina",n."zvanje" as "Zvanje",  n."ime"||' '||n."prezime" as "Profesor"
+FROM  NASTAVNIK n, KURS k, DRZI d
+WHERE  k."br_kursa"=d."br_kursa" AND n."br_nastavnika"=d."br_nastavnika"
+SELECT s."ime"||' '||s."prezime" as "Student", s."godina_st" as "Godina studiranja", g."br_grupe" as "Broj grupe"
+FROM  STUDENT s, PRIPADA p, GRUPA g
+WHERE  s."br_indeksa"=p."br_indeksa" AND g."br_grupe"=p."br_grupe"
